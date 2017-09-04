@@ -5,10 +5,10 @@
 
 Name:		unarr
 Version:	0
-Release:	1.%{date}
+Release:	2.%{date}
 Group:		Development/C
 Summary:	A decompression library
-License:	LGPLv2+
+License:	LGPLv3+
 
 URL:            https://github.com/zeniko/unarr
 # git clone https://github.com/zeniko/unarr.git
