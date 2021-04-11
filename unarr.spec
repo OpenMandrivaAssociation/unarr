@@ -1,21 +1,18 @@
 %define major	1
 %define libname	%mklibname unarr %{major}
 %define devname %mklibname -d unarr
-%define date	20160923
 
 Name:		unarr
-Version:	0
-Release:	2.%{date}
+Version:	1.0.1
+Release:	1
 Group:		Development/C
 Summary:	A decompression library
 License:	LGPLv3+
 
-URL:            https://github.com/zeniko/unarr
-# git clone https://github.com/zeniko/unarr.git
-# git archive --format=tar --prefix unarr-0-$(date +%Y%m%d)/ HEAD | xz -vf > unarr-0-$(date +%Y%m%d).tar.xz
-Source0:	%{name}-%{version}-%{date}.tar.xz
-Source1:        https://raw.githubusercontent.com/selmf/unarr/master/CMakeLists.txt
+URL:            https://github.com/selmf/unarr/
+Source0:	https://github.com/selmf/unarr/releases/download/v%{version}/%{name}-%{version}.tar.xz
 
+BuildRequires:  cmake
 BuildRequires: 	cmake(ZLIB)
 BuildRequires: 	pkgconfig(zlib)
 BuildRequires: 	bzip2-devel
@@ -41,16 +38,14 @@ The %{name}-devel package contains libraries and header files for
 developing applications that use %{name}.
 
 %prep
-%setup -qn %{name}-%{version}-%{date}
-cp -p %SOURCE1 .
-sed -i s'!DESTINATION lib!DESTINATION %_lib!g' CMakeLists.txt 
+%setup -qn %{name}-%{version}
 
 %build
 %cmake 
-%make
+%make_build
 
 %install
-%makeinstall_std -C build LIBDIR=%{_libdir}
+%make_install -C build LIBDIR=%{_libdir}
 find %{buildroot} -name '*.a' -exec rm -f {} ';'
 
 %files -n %{libname}
@@ -59,3 +54,4 @@ find %{buildroot} -name '*.a' -exec rm -f {} ';'
 %files -n %{devname}
 %{_includedir}/*
 %{_libdir}/lib%{name}.so
+%{_libdir}/pkgconfig/libunarr.pc
