@@ -54,3 +54,4 @@ find %{buildroot} -name '*.a' -exec rm -f {} ';'
 %files -n %{devname}
 %{_includedir}/*
 %{_libdir}/lib%{name}.so
+%{_libdir}/pkgconfig/libunarr.pc
