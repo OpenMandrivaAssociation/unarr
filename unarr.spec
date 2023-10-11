@@ -3,7 +3,7 @@
 %define devname %mklibname -d unarr
 
 Name:		unarr
-Version:	1.0.1
+Version:	1.1.0
 Release:	1
 Group:		Development/C
 Summary:	A decompression library
@@ -55,3 +55,4 @@ find %{buildroot} -name '*.a' -exec rm -f {} ';'
 %{_includedir}/*
 %{_libdir}/lib%{name}.so
 %{_libdir}/pkgconfig/libunarr.pc
+%{_libdir}/cmake/unarr/
