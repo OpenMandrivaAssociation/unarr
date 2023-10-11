@@ -55,3 +55,4 @@ find %{buildroot} -name '*.a' -exec rm -f {} ';'
 %{_includedir}/*
 %{_libdir}/lib%{name}.so
 %{_libdir}/pkgconfig/libunarr.pc
+%{_libdir}/cmake/unarr/
