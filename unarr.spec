@@ -3,7 +3,7 @@
 %define devname %mklibname -d unarr
 
 Name:		unarr
-Version:	1.1.0
+Version:	1.1.1
 Release:	1
 Group:		Development/C
 Summary:	A decompression library
